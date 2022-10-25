@@ -17,7 +17,7 @@ int main() {
  
     // ここにプログラムを追記
     // (ここで"試合結果の表"の2次元配列を宣言)
-    vector<vector<char>> data(N, vector<char>('-')); // N ✖️ Nのtable
+    vector<vector<char>> data(N, vector<char>('-')); // N ✖️ Nのtable　※おそらく-で初期化しているからコンパイルエラーが出る
 
     // 勝ちの処理
     for (int i = 0; i < N; i++) {
