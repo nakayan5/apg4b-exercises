@@ -17,28 +17,40 @@ int main() {
  
     // ここにプログラムを追記
     // (ここで"試合結果の表"の2次元配列を宣言)
-    vector<vector<char>> data(N, vector<char>('-')); // N ✖️ Nのtable　※おそらく-で初期化しているからコンパイルエラーが出る
+    vector<vector<int>> data(N, vector<int>(N)); // N ✖️ Nのtable　※おそらく-で初期化しているからコンパイルエラーが出る
 
     // 勝ちの処理
     for (int i = 0; i < N; i++) {
         int atMe = A.at(i) - 1;
         int atOpponent = B.at(i) - 1;
-        data.at(atMe).at(atOpponent) = '○';
+        data.at(atMe).at(atOpponent) = 2;
     }
 
     // 負けの処理
     for (int i = 0; i < N; i++) {
         int atMe = B.at(i) - 1;
         int atOpponent = A.at(i) - 1;
-        data.at(atMe).at(atOpponent) = 'x';
+        data.at(atMe).at(atOpponent) = 1;
     }
 
     for (int a = 0; a < N; a++) {
         for (int b = 0; b < N; b++) {
             if (b == N - 1) {
-                cout << data[a][b];
+                if (data[a][b] == 2) {
+                    cout << "○";
+                } else if (data[a][b] == 1) {
+                    cout << "x";
+                } else {
+                    cout << "-";
+                }
             } else {
-                cout << data[a][b] << " ";
+                if (data[a][b] == 2) {
+                    cout << "○" << " ";
+                } else if (data[a][b] == 1) {
+                    cout << "x" << " ";
+                } else {
+                    cout << "-" << " ";
+                }
             }
         }
         cout << endl;
