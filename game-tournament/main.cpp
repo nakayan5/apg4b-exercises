@@ -19,15 +19,16 @@ int main() {
     // (ここで"試合結果の表"の2次元配列を宣言)
     vector<vector<char>> data(N, vector<char>(N, '-')); // N ✖️ Nのtable　※おそらく-で初期化しているからコンパイルエラーが出る
 
+    // 勝ちと負けの処理を一緒にできそう
     // 勝ちの処理
-    for (int i = 0; i < N; i++) {  // ここNだとダメじゃね？
+    for (int i = 0; i < M; i++) {  // ここNだとダメじゃね？
         int atMe = A.at(i) - 1;
         int atOpponent = B.at(i) - 1;
         data.at(atMe).at(atOpponent) = 'o';
     }
 
     // 負けの処理
-    for (int i = 0; i < N; i++) {
+    for (int i = 0; i < M; i++) {
         int atMe = B.at(i) - 1;
         int atOpponent = A.at(i) - 1;
         data.at(atMe).at(atOpponent) = 'x';
