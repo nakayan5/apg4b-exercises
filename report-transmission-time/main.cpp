@@ -45,3 +45,34 @@ int main() {
   // 0番の組織の元に報告書が揃う時刻を求める
   cout << complete_time(children, 0) << endl;
 }
+
+// intput
+// 6
+// 0 0 1 1 4
+
+// データ構造
+// {
+//     {1, 2},
+//     {3, 4},
+//     {},
+//     {},
+//     {5},
+//     {}
+// }
+
+// xが0の時 -> children.at(0)の値は1と2
+// まず１の場合
+// xが1の時 -> children.at(1)の値は3と4
+// まずは3の場合
+// complete_time(children, 1) + 1;
+// -> (complete_time(children, 3) + 1) + 1;
+// -> ((0) + 1) + 1;
+
+// xが0の時 -> children.at(0)の値は1と2
+// まず１の場合
+// xが1の時 -> children.at(1)の値は3と4
+// 4の場合
+// complete_time(children, 1) + 1;
+// -> (complete_time(children, 4) + 1) + 1;
+// -> ((complete_time(children, 5) + 1) + 1) + 1;
+// -> (((0) + 1) + 1) + 1;
