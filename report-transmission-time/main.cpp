@@ -11,7 +11,7 @@ int complete_time(vector<vector<int>> &children, int x) {
   // 再帰ステップ
   int max_receive_time = 0;  // 受け取った時刻の最大値
   // x番の組織の子組織についてループ
-  for (int c : children.at(x)) {
+  for (int c : children.at(x)) { // 範囲for文 http://vivi.dyndns.org/tech/cpp/range-for.html
  
     // (子組織 c のもとに揃った時刻 + 1) の時刻に c からの報告書を受け取る
     int receive_time = complete_time(children, c) + 1;
