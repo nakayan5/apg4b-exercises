@@ -26,3 +26,33 @@
 2. ### 再帰ステップの実装
 
 3. ### ベースケースの実装 （再帰呼び出しを行わずに完了できる処理）
+
+## 例
+
+### sum_range
+
+```cpp
+#include <bits/stdc++.h>
+using namespace std;
+
+// a ~ bの総和を計算する (a ≦ b)という前提
+int sum_range(int a, int b) {
+  // ベースケース
+  if (a == b) {
+    return a;
+  }
+  // 再帰ステップ
+  return sum_range(a, b - 1) + b;  //「a~bの総和」=「a~(b-1)の総和」+ b
+}
+
+int main() {
+  cout << sum_range(0, 4) << endl; // 0 + 1 + 2 + 3 + 4 = 10
+}
+
+// output
+sum_range(0, 4-1) -> 4
+sum_range(0, 3-1) -> 3
+sum_range(0, 2-1) -> 2
+sum_range(0, 1-1) -> 1
+sum_range(0, 0-1) -> 0
+```
