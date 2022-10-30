@@ -99,3 +99,35 @@ array_sum_from_i(data, 4 + 1)の返り値は0
 この現象を **スタックオーバーフロー** といいます。
 
 ## 相互再帰
+
+```cpp
+#include <bits/stdc++.h>
+using namespace std;
+
+// プロトタイプ宣言
+bool is_even(int);
+bool is_odd(int);
+
+// nが偶数かを判定する
+bool is_even(int n) {
+  // ベースケース
+  if (n == 0) return true;
+
+  // 再帰ステップ
+  return is_odd(n - 1);  // n-1 が奇数なら、nは偶数
+}
+// nが奇数かを判定する
+bool is_odd(int n) {
+  // ベースケース
+  if (n == 0) return false;
+
+  // 再帰ステップ
+  return is_even(n - 1);  // n-1 が偶数なら、nは奇数
+}
+
+int main() {
+  cout << is_even(4) << endl;  // 1
+  cout << is_odd(5) << endl;   // 1
+  cout << is_even(3) << endl;  // 0
+}
+```
