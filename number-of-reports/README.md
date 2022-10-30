@@ -56,3 +56,38 @@ sum_range(0, 2-1) -> 2
 sum_range(0, 1-1) -> 1
 sum_range(0, 0-1) -> 0
 ```
+
+### array_sum
+
+```cpp
+#include <bits/stdc++.h>
+using namespace std;
+
+// (補助関数)
+// dataのi番目以降の要素の総和を計算する
+int array_sum_from_i(vector<int> &data, int i) {
+  // ベースケース
+  if (i == data.size()) return 0;  // 対象の要素がないので総和は0
+
+  // 再帰ステップ
+  int s = array_sum_from_i(data, i + 1);  // i+1番目以降の要素の総和
+  return data.at(i) + s;  // 「i番目以降の要素の総和」=「i番目の要素」+ s
+}
+
+// dataの全ての要素の総和を計算する
+int array_sum(vector<int> &data) {
+  return array_sum_from_i(data, 0);
+}
+
+int main() {
+  vector<int> a = {0, 3, 9, 1, 5};
+  cout << array_sum(a) << endl;   // 0 + 3 + 9 + 1 + 5 = 18
+}
+
+// output
+array_sum_from_i(data, 0 + 1)を呼び出す -> array_sum_from_i(data, 1 + 1) -> array_sum_from_i(data, 2 + 1) -> array_sum_from_i(data, 3 + 1) -> array_sum_from_i(data, 4 + 1)
+
+data.at(5) -> data.at(4) + 0 -> data.at(3) + (0+5) -> data.at(2) + (0+5+1) -> data.at(1) + (0+5+1+9) -> data.at(0) + (0+5+1+9+3) -> 0+5+1+9+3+0 -> 18
+
+array_sum_from_i(data, 4 + 1)の返り値は0
+```
