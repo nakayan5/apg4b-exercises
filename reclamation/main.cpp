@@ -1,0 +1,1 @@
+// B - 埋め立て https://atcoder.jp/contests/arc031/tasks/arc031_2
